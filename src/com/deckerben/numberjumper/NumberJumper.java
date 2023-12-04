@@ -30,14 +30,14 @@ public interface NumberJumper {
         return getPlayField()[getCurrentPlayerLoc().y + dir.rowOffset][getCurrentPlayerLoc().x + dir.columnOffset];
     }
 
-    default int jump(Direction dir) throws PlayerOutOfBoundsException, IllegalDirectionException, CanNotLeaveException, CanNotEnterException, AlreadyLeftStartException, AlreadyInGoalExcepition {
+    default int jump(Direction dir) throws PlayerOutOfBoundsException, IllegalDirectionException, CanNotLeaveException, CanNotEnterException, AlreadyLeftStartException, AlreadyInGoalException {
         PlayerOutOfBoundsException.checkThrow(getCurrentPlayerLoc(),getFieldSize());
         if (!isInStart() && dir == Direction.SOUTH && getCurrentPlayerLoc().y == 0) throw new AlreadyLeftStartException();
         NumberField srcField = (getCurrentPlayerLoc().y < 0) ? null : getFieldUnderPlayer();
         if (!isInGoal()) {
             IllegalDirectionException.checkThrow(dir,getCurrentPlayerLoc(),getFieldSize());
             getCurrentPlayerLoc().translate(dir.columnOffset, dir.rowOffset);
-        }   else throw new AlreadyInGoalExcepition();
+        }   else throw new AlreadyInGoalException();
         if (!isInGoal() && !isInStart()) {
             if (srcField != null) {
                 if (isSpecial(srcField)) {

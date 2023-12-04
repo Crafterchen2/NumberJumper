@@ -5,7 +5,7 @@ import java.awt.*;
 public class IllegalDirectionException extends Exception{
 
     public IllegalDirectionException(Direction dir) {
-        super("Can't move in direction "+dir+" without leaving the playfield.");
+        super("Can't move in direction "+dir+" without leaving the play field.");
     }
 
     public IllegalDirectionException(String message) {

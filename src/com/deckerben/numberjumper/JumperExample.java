@@ -53,7 +53,7 @@ public class JumperExample implements NumberJumper{
     }
 
     @Override
-    public int jump(Direction dir) throws PlayerOutOfBoundsException, IllegalDirectionException, CanNotLeaveException, CanNotEnterException, AlreadyLeftStartException, AlreadyInGoalExcepition {
+    public int jump(Direction dir) throws PlayerOutOfBoundsException, IllegalDirectionException, CanNotLeaveException, CanNotEnterException, AlreadyLeftStartException, AlreadyInGoalException {
         return points = NumberJumper.super.jump(dir);
     }
 
