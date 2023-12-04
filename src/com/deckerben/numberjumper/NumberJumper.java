@@ -82,16 +82,17 @@ public interface NumberJumper {
         if (specials.length < (field.length * field[0].length)) {
             Random rng = new Random(System.currentTimeMillis()); //rng.nextInt(0, field.length);
             int x, y;
-            for (int i = 0; i < specials.length; i++) {
+            for (SpecialField special : specials) {
                 x = rng.nextInt(0, field.length);
                 y = rng.nextInt(0, field[0].length);
                 if (!(field[x][y] instanceof SpecialField)) {
-                    field[x][y] = specials[i];
+                    field[x][y] = special;
                 } else {
-                    A: for (int j = 0; j < field.length; j++) {
+                    A:
+                    for (int j = 0; j < field.length; j++) {
                         for (int k = 0; k < field[j].length; k++) {
-                            if (!(field[(x+j) % field.length][(x+k) % field[j].length] instanceof SpecialField)) {
-                                field[(x+j) % field.length][(x+k) % field[j].length] = specials[i];
+                            if (!(field[(x + j) % field.length][(x + k) % field[j].length] instanceof SpecialField)) {
+                                field[(x + j) % field.length][(x + k) % field[j].length] = special;
                                 break A;
                             }
                         }
