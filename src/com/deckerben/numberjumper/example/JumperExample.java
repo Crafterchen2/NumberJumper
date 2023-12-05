@@ -1,8 +1,10 @@
-package com.deckerben.numberjumper;
+package com.deckerben.numberjumper.example;
+
+import com.deckerben.numberjumper.*;
 
 import java.awt.*;
 
-public class JumperExample implements NumberJumper{
+public class JumperExample implements NumberJumper {
 
     private int points = 0;
     private final Point location = new Point(0,-1);
@@ -80,36 +82,36 @@ public class JumperExample implements NumberJumper{
 
 class FieldExample implements NumberField {
 
-    private final int row;
+    private final int value;
 
-    public FieldExample(int row){
-        this.row = row;
+    public FieldExample(int value){
+        this.value = value;
     }
 
     @Override
-    public int getRow() {
-        return row;
+    public int getValue() {
+        return value;
     }
 
 }
 
 class SpecialExample implements SpecialField {
 
-    private final int row;
+    private final int value;
 
-    public SpecialExample(int row){
-        this.row = row;
+    public SpecialExample(int value){
+        this.value = value;
     }
 
     @Override
     public int manipulate(int points) {
-        System.out.println("Special "+getRow()+" called (RRRrrring! :) )");
+        System.out.println("Special "+ getValue()+" called (RRRrrring! :) )");
         return 0;
     }
 
     @Override
-    public int getRow() {
-        return row;
+    public int getValue() {
+        return value;
     }
 
     @Override

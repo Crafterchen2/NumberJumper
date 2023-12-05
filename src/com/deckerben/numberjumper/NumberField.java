@@ -2,10 +2,10 @@ package com.deckerben.numberjumper;
 
 public interface NumberField {
 
-    int getRow();
+    int getValue();
 
     default int manipulate(int points){
-        return points + getRow() +1;
+        return points + getValue() +1;
     }
 
 }
